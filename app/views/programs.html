@@ -1,0 +1,37 @@
+<div layout="column" layout-align="start center">
+<md-menu>
+        <md-button aria-label="Open demo menu" class="md-raised" ng-click="$mdOpenMenu($event)" layout-align="center">
+            <svg style="padding-top: 10px" height="30" width="50">
+                <path d="M 0 3 q 25 5 50 0" style="stroke: {{ (selectedGrade) ? selectedGrade.color_hex : '#000'}}" stroke-width="5" fill="none" />
+                <path d="M 10 30 q 15 -50 30 0" style="stroke: {{ (selectedGrade) ? selectedGrade.color_hex : '#000'}}" stroke-width="5" fill="none" />
+                <circle cx="25" cy="5" r="5" style="fill: {{ (selectedGrade) ? selectedGrade.color_hex : '#000'}}"  />
+            </svg>
+            {{ (selectedGrade) ? selectedGrade.grade + '. ' + selectedGrade.level : 'Bitte auswählen' }}
+        </md-button>
+        <md-menu-content width="6">
+            <md-menu-item ng-repeat="grade in grades">
+                <md-button ng-click="showProgram(grade)">
+                    <svg style="padding-top: 10px" height="30" width="50">
+                        <path d="M 0 3 q 25 5 50 0" style="stroke: {{grade.color_hex}}" stroke-width="5" fill="none" />
+                        <path d="M 10 30 q 15 -50 30 0" style="stroke: {{grade.color_hex}}" stroke-width="5" fill="none" />
+                        <circle cx="25" cy="5" r="5" style="fill: {{grade.color_hex}}"  />
+                    </svg>
+                    {{grade.grade}}. {{grade.level}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>
+
+
+<md-list ng-show="techniques">
+    <md-subheader class="md-no-sticky">Prüfungsprogramm {{ selectedGrade.grade + '. ' + selectedGrade.level }}</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="technique in techniques" ng-click="openDialog($event, technique)">
+        <i class="material-icons">play_circle_outline</i>
+        <span flex="5"></span>
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ technique.name }}</h3>
+            <p>{{ technique.description }}</p>
+        </div>
+    </md-list-item>
+</md-list>

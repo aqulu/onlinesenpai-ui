@@ -1,0 +1,24 @@
+<form ng-submit="login()">
+<div layout="row" layout-align="center">
+    <md-card>
+        <md-card-header>
+            Login
+        </md-card-header>
+        <md-card-content >
+            <md-input-container>
+                <label>Mail</label>
+                <input ng-model="user.mail" required md-maxlength="50" type="email">
+            </md-input-container><br />
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="user.password" required md-maxlength="50" type="password">
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <button type="submit" class="md-button">
+                Login
+            </md-button>
+        </md-card-actions>
+    </md-card>    
+</div>
+</form>

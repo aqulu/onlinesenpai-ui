@@ -1,0 +1,22 @@
+<md-list>
+    <md-list-item ng-repeat="user in users | orderBy: grade.level" ng-click="openDialog($event, user)">
+        <svg style="padding-top: 10px" height="30" width="50">
+            <path d="M 0 3 q 25 5 50 0" style="stroke: {{user.grade.color_hex}}" stroke-width="5" fill="none" />
+            <path d="M 10 30 q 15 -50 30 0" style="stroke: {{user.grade.color_hex}}" stroke-width="5" fill="none" />
+            <circle cx="25" cy="5" r="5" style="fill: {{user.grade.color_hex}}"  />
+        </svg>
+        <span flex="5"></span>
+        {{user.grade.grade}}. {{user.grade.level}}
+        <span flex="5"></span>
+        <h4>
+            {{user.firstname}} {{user.lastname}}&nbsp;
+        </h4>
+        <span class="md-caption" ng-if="user.instructor">(Trainer)</span>
+        <i class="material-icons md-secondary" ng-show="currentUser.instructor" ng-click="openDialog($event, user)">mode_edit</i>
+    </md-list-item>
+</md-list>
+<div layout="row" layout-align="end">
+    <md-button class="md-fab md-primary" aria-label="Add user" ng-show="currentUser.instructor" ng-click="openDialog($event, null)" layout-align="center center">
+        <i class="material-icons">add</i>
+    </md-button>
+</div>

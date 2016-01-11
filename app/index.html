@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>KSR Online Senpai</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="onlinesenpaiUiApp">
+    <!--[if lte IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div layout="column" layout-fill>
+        <md-toolbar>
+            <div class="md-toolbar-tools md-tall" ng-show="!isLoggedIn()">
+                <span flex></span>
+                <span>
+                    <h2>和道会</h2>
+                    <span class="md-caption">Online Senpai</span>
+                </span>
+                <span flex></span>
+            </div>
+            <div class="md-toolbar-tools md-tall"  ng-show="isLoggedIn()">
+                <a href="#/">
+                    <h2>和道会</h2>
+                    <span class="md-caption">Online Senpai</span>
+                </a>
+                <!-- fill up the space between left and right area -->
+                <span flex></span>
+                <a class="md-button" href="#/techniques">Techniken</a>
+                <span flex="5"></span>
+                <a class="md-button" href="#/programs">Prüfungsprogramme</a>
+                <span flex></span>
+                <span flex="10">
+                    {{currentUser.firstname}} {{currentUser.lastname}}
+                </span>
+                <span>
+                    <svg style="margin-top: 70%" height="75" width="100">
+                        <text x="20" y="15" fill="white">{{currentUser.grade.grade}}. {{currentUser.grade.level}}</text>
+                        <path d="M 0 20 q 50 10 100 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
+                        <path d="M 10 75 q 40 -100 80 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
+                        <circle cx="50" cy="25" r="10" style="fill: {{currentUser.grade.color_hex}}"  />
+                    </svg>
+                </span>
+                <span>
+                    <md-button ng-click="logout()"> Logout </md-button>
+                </span>
+                <a href="#/users" class="md-icon-button" ng-show="currentUser.instructor">
+                    <i class="material-icons">settings</i>
+                </a>
+            </div>
+        </md-toolbar>
+        <md-content flex>
+            <div ng-view layout-fill></div>
+        </md-content>
+    </div>
+        
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/program.js"></script>
+        <script src="scripts/controllers/technique.js"></script>
+        <script src="scripts/services/securityservice.js"></script>
+        <script src="scripts/services/userservice.js"></script>
+        <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/services/gradeservice.js"></script>
+        <script src="scripts/services/techniqueservice.js"></script>
+        <script src="scripts/controllers/dialog.js"></script>
+        <script src="scripts/controllers/toast.js"></script>
+        <script src="scripts/controllers/userdialog.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

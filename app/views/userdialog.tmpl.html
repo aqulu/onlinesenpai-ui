@@ -1,0 +1,70 @@
+<md-dialog aria-label="{{user.name}}" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{user.firstname}} {{user.lastname}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding>
+        <div layout-gt-xs="row">
+            <md-input-container>
+                <label>Vorname</label>
+                <input ng-model="user.firstname" required md-maxlength="25" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Nachname</label>
+                <input ng-model="user.lastname" required md-maxlength="50" type="text">
+            </md-input-container>
+        </div>
+        <div layout-gt-xs="row">
+            <md-input-container>
+                <label>Mail</label>
+                <input ng-model="user.mail" required md-maxlength="100" type="email">
+            </md-input-container>
+            
+            <md-input-container>
+                <md-checkbox ng-model="user.instructor" aria-label="Trainer">
+                    Trainer
+                </md-checkbox>
+            </md-input-container>
+        </div>
+        <div layout-gt-xs="row" layout-align="center">
+            <md-menu>
+                <md-button aria-label="Open menu" class="md-raised" ng-click="$mdOpenMenu($event)" layout-align="center">
+                    <svg style="padding-top: 10px" height="30" width="50">
+                        <path d="M 0 3 q 25 5 50 0" style="stroke: {{(user.grade) ? user.grade.color_hex : '#000'}}" stroke-width="5" fill="none" />
+                        <path d="M 10 30 q 15 -50 30 0" style="stroke: {{(user.grade) ? user.grade.color_hex : '#000'}}" stroke-width="5" fill="none" />
+                        <circle cx="25" cy="5" r="5" style="fill: {{(user.grade) ? user.grade.color_hex : '#000'}}"  />
+                    </svg>
+                    {{ (user.grade) ? user.grade.grade + '. ' + user.grade.level : 'Bitte auswählen' }}
+                </md-button>
+                <md-menu-content width="6">
+                    <md-menu-item ng-repeat="grade in grades">
+                        <md-button ng-click="user.grade = grade">
+                            <svg style="padding-top: 10px" height="30" width="50">
+                                <path d="M 0 3 q 25 5 50 0" style="stroke: {{grade.color_hex}}" stroke-width="5" fill="none" />
+                                <path d="M 10 30 q 15 -50 30 0" style="stroke: {{grade.color_hex}}" stroke-width="5" fill="none" />
+                                <circle cx="25" cy="5" r="5" style="fill: {{grade.color_hex}}"  />
+                            </svg>
+                            {{grade.grade}}. {{grade.level}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()" md-autofocus>
+        Abbrechen
+      </md-button>
+      <md-button ng-click="save()">
+        Speichern
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

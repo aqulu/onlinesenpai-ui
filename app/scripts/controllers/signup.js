@@ -7,7 +7,7 @@
  * # SignupCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('SignUpCtrl', function ($scope, $routeParams, $location, SecurityService) {
+angular.module('onlinesenpaiUiApp').controller('SignUpCtrl', function ($scope, $routeParams, $location, $rootScope, SecurityService) {
     if (!$routeParams.token) {
         $location.path('/login');
     } else {
@@ -17,7 +17,8 @@ angular.module('onlinesenpaiUiApp').controller('SignUpCtrl', function ($scope, $
     $scope.user = {password: ''}
     
     $scope.signup = function() {
-      SecurityService.signup($scope.user).$promise.then(function() {
+      SecurityService.signup($scope.user).$promise.then(function(result) {
+        $rootScope.setCredentials(result.user, result.token.token);
         $location.path('/techniques');
       });  
     };    

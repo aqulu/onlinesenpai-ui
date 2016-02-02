@@ -17,9 +17,7 @@ angular.module('onlinesenpaiUiApp').controller('LoginCtrl', function ($scope, $r
   $scope.login = function() {
     SecurityService.login($scope.user).$promise.then(
         function(result) {
-            localStorage.setItem('token', result.token.token);
-            localStorage.setItem('user', JSON.stringify(result.user));
-            $rootScope.currentUser = result.user;
+            $rootScope.setCredentials(result.user, result.token.token);
             $location.path('/techniques');
         }, function(error) {
             console.log('login failed');

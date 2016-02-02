@@ -61,6 +61,12 @@ angular
   .run(function($rootScope, $location, $mdToast) {
       $rootScope.currentUser = JSON.parse(localStorage.getItem('user'));
       
+      $rootScope.setCredentials = function(user, token) {
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        $rootScope.currentUser = user;
+      };
+      
       $rootScope.logout = function() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');  

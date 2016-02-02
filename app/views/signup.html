@@ -1,0 +1,20 @@
+<form ng-submit="signup()">
+<div layout="row" layout-align="center">
+    <md-card>
+        <md-card-header>
+            Signup
+        </md-card-header>
+        <md-card-content >
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="user.password" required md-maxlength="50" type="password">
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <button type="submit" class="md-button">
+                Signup
+            </md-button>
+        </md-card-actions>
+    </md-card>    
+</div>
+</form>

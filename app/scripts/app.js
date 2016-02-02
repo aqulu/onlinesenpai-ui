@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/programs.html',
         controller: 'ProgramCtrl'
       })
+      .when('/signup/:token', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignUpCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });

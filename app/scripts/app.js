@@ -11,7 +11,7 @@
 angular
   .module('onlinesenpaiUiApp', [
     'ngResource',
-    'ngRoute', 
+    'ngRoute',
     'ngMaterial'
   ])
   .config(function ($routeProvider) {
@@ -23,6 +23,10 @@ angular
       .when('/users', {
         templateUrl: 'views/users.html',
         controller: 'UserCtrl'
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
       })
       .when('/techniques', {
         templateUrl: 'views/techniques.html',
@@ -52,7 +56,7 @@ angular
         };
       };
       $httpProvider.interceptors.push(interceptor);
-      
+
       if (!$httpProvider.defaults.headers.get) {
           $httpProvider.defaults.headers.get = {};
       }
@@ -60,24 +64,24 @@ angular
   })
   .run(function($rootScope, $location, $mdToast) {
       $rootScope.currentUser = JSON.parse(localStorage.getItem('user'));
-      
+
       $rootScope.setCredentials = function(user, token) {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
         $rootScope.currentUser = user;
       };
-      
+
       $rootScope.logout = function() {
         localStorage.removeItem('token');
-        localStorage.removeItem('user');  
+        localStorage.removeItem('user');
         $location.path('/');
       };
-      
+
       $rootScope.isLoggedIn = function() {
         var token = localStorage.getItem('token');
         return token !== null && angular.isDefined(token);
       };
-      
+
       $rootScope.showToast = function(message) {
         $mdToast.show(
             $mdToast.simple()

@@ -40,6 +40,8 @@
                 <a class="md-button" href="#/techniques">Techniken</a>
                 <span flex="5"></span>
                 <a class="md-button" href="#/programs">Prüfungsprogramme</a>
+                <span flex="5"></span>
+                <a class="md-button" href="#/users" ng-show="currentUser.instructor">Verwaltung</a>
                 <span flex></span>
                 <span flex="10">
                     {{currentUser.firstname}} {{currentUser.lastname}}
@@ -55,7 +57,7 @@
                 <span>
                     <md-button ng-click="logout()"> Logout </md-button>
                 </span>
-                <a href="#/users" class="md-icon-button" ng-show="currentUser.instructor">
+                <a href="#/profile" class="md-icon-button">
                     <i class="material-icons">settings</i>
                 </a>
             </div>
@@ -64,7 +66,7 @@
             <div ng-view layout-fill></div>
         </md-content>
     </div>
-        
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -91,6 +93,7 @@
         <script src="scripts/controllers/toast.js"></script>
         <script src="scripts/controllers/userdialog.js"></script>
         <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
         <!-- endbuild -->
 </body>
 </html>

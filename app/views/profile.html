@@ -1,32 +1,38 @@
-<div layout-fill layout-align="start center">
-  <h2>{{user.firstname}} {{user.lastname}}</h2><br />
-  <form>
-    <div layout-gt-xs="row">
-      <md-input-container>
-        <label>Vorname</label>
-        <input ng-model="user.firstname" required md-maxlength="25" type="text">
-      </md-input-container>
-    </div>
-    <div layout-gt-xs="row">
-      <md-input-container>
-        <label>Nachname</label>
-        <input ng-model="user.lastname" required md-maxlength="50" type="text">
-      </md-input-container>
-    </div>
-    <div layout-gt-xs="row">
-      <md-input-container>
-        <label>Mail</label>
-        <input ng-model="user.mail" required md-maxlength="100" type="email">
-      </md-input-container>
-    </div>
-    <div layout-gt-xs="row">
-      <md-input-container>
-        <label>Password</label>
-        <input ng-model="user.password" required md-maxlength="50" type="password">
-      </md-input-container>
-    </div>
-    <md-button ng-click="save()">
-        Speichern
-    </md-button>
-  </form>
+<div layout="row" layout-wrap>
+  <div flex="33">
+  </div>
+  <div flex="33">
+    <h2>{{user.firstname}} {{user.lastname}}</h2><br />
+    <form>
+      <div layout-gt-xs="row">
+        <md-input-container>
+          <label>Vorname</label>
+          <input ng-model="user.firstname" required md-maxlength="25" type="text">
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container>
+          <label>Nachname</label>
+          <input ng-model="user.lastname" required md-maxlength="50" type="text">
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container>
+          <label>Mail</label>
+          <input ng-model="user.mail" required md-maxlength="100" type="email">
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container>
+          <label>Password</label>
+          <input ng-model="user.password" required md-maxlength="50" type="password">
+        </md-input-container>
+      </div>
+      <md-button ng-click="save()">
+          Speichern
+      </md-button>
+    </form>
+  </div>
+  <div flex="33">
+  </div>
 </div>

@@ -9,7 +9,6 @@ version 0.12.1.
 In order to use this repository `npm`, `bower`, `grunt` are required.
 
 ## Setup
-
   cd onlinesenpai-ui
   npm install
   bower install

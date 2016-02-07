@@ -7,7 +7,7 @@
  * # UserdialogCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('UserDialogCtrl', function ($scope, $mdDialog, user, UserService, GradeService) {
+angular.module('onlinesenpaiUiApp').controller('TechniqueDialogCtrl', function ($scope, $mdDialog, user, UserService, GradeService) {
     $scope.user = user;
     $scope.grades = GradeService.findAll();
     // $scope.grades = [{"grade":9,"level":"Kyu","color_hex":"#ffffff"},{"grade":8,"level":"Kyu","color_hex":"#ffed20"},{"grade":7,"level":"Kyu","color_hex":"#f78402"},{"grade":6,"level":"Kyu","color_hex":"#18851f"},{"grade":5,"level":"Kyu","color_hex":"#01579b"},{"grade":4,"level":"Kyu","color_hex":"#8d15ba"},{"grade":3,"level":"Kyu","color_hex":"#51474A"},{"grade":2,"level":"Kyu","color_hex":"#51474A"},{"grade":1,"level":"Kyu","color_hex":"#51474A"},{"grade":1,"level":"Dan","color_hex":"#000000"},{"grade":2,"level":"Dan","color_hex":"#000000"},{"grade":3,"level":"Dan","color_hex":"#000000"},{"grade":4,"level":"Dan","color_hex":"#000000"},{"grade":5,"level":"Dan","color_hex":"#000000"},{"grade":6,"level":"Dan","color_hex":"#000000"},{"grade":7,"level":"Dan","color_hex":"#000000"},{"grade":8,"level":"Dan","color_hex":"#000000"},{"grade":9,"level":"Dan","color_hex":"#000000"},{"grade":10,"level":"Dan","color_hex":"#000000"}];

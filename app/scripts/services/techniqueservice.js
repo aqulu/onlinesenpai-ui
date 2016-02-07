@@ -20,6 +20,13 @@ angular.module('onlinesenpaiUiApp').service('TechniqueService', function ($resou
                 page: 'techniques'
             },
             isArray: true
+        },
+        updateTechnique: {
+          method: 'PUT',
+          params: {
+            id: '@id',
+            page: 'techniques'
+          }
         }
-    });   
+    });
 });

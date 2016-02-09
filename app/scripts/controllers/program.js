@@ -7,7 +7,7 @@
  * # LoginCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('ProgramCtrl', function ($scope, $mdDialog, GradeService, TechniqueService) {
+angular.module('onlinesenpaiUiApp').controller('ProgramCtrl', function ($scope, $mdDialog, GradeService) {
     $scope.grades = GradeService.findAll();
     var originatorEv;
     this.openMenu = function($mdOpenMenu, ev) {

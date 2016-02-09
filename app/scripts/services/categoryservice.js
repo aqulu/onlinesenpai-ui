@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name onlinesenpaiUiApp.TechniqueService
+ * @name onlinesenpaiUiApp.CategoryService
  * @description
- * # TechniqueService
+ * # CategoryService
  * Service in the onlinesenpaiUiApp.
  */
-angular.module('onlinesenpaiUiApp').service('TechniqueService', function ($resource) {
+angular.module('onlinesenpaiUiApp').service('CategoryService', function ($resource) {
     return $resource('/api/categories/:id/:page', {}, {
         findAll: {
             method: 'GET',
@@ -20,13 +20,6 @@ angular.module('onlinesenpaiUiApp').service('TechniqueService', function ($resou
                 page: 'techniques'
             },
             isArray: true
-        },
-        updateTechnique: {
-          method: 'PUT',
-          params: {
-            id: '@id',
-            page: 'techniques'
-          }
         }
     });
 });

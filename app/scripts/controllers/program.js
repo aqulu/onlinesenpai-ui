@@ -14,15 +14,15 @@ angular.module('onlinesenpaiUiApp').controller('ProgramCtrl', function ($scope, 
       originatorEv = ev;
       $mdOpenMenu(ev);
     };
-    
+
     $scope.showProgram = function(grade) {
         $scope.selectedGrade = grade;
         $scope.techniques = GradeService.findTechniques({id: grade.id});
     };
-    
+
     $scope.openDialog = function(ev, technique) {
         $mdDialog.show({
-            controller: 'DialogCtrl',
+            controller: 'VideoDialogCtrl',
             templateUrl: 'views/videodialog.tmpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -32,5 +32,5 @@ angular.module('onlinesenpaiUiApp').controller('ProgramCtrl', function ($scope, 
             }
         });
     };
-    
+
 });

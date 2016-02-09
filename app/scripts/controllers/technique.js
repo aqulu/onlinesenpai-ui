@@ -14,7 +14,7 @@ angular.module('onlinesenpaiUiApp').controller('TechniqueCtrl', function ($scope
 
     $scope.openDialog = function(ev, technique) {
         $mdDialog.show({
-            controller: 'DialogCtrl',
+            controller: 'VideoDialogCtrl',
             templateUrl: 'views/videodialog.tmpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,

@@ -7,7 +7,7 @@
  * # DialogCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('DialogCtrl', function ($scope, $mdDialog, technique) {
+angular.module('onlinesenpaiUiApp').controller('VideoDialogCtrl', function ($scope, $mdDialog, technique) {
     $scope.technique = technique;
     $scope.cancel = function() {
         $mdDialog.cancel();

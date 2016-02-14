@@ -7,15 +7,15 @@
  * # TechniquedialogCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('TechniqueDialogCtrl', function ($scope, $mdDialog, technique, CategoryService) {
+angular.module('onlinesenpaiUiApp').controller('TechniqueDialogCtrl', function ($scope, $rootScope, $mdDialog, technique, CategoryService) {
     $scope.technique = technique;
 
     $scope.save = function() {
         CategoryService.updateTechnique({id: $scope.technique.id}, $scope.technique).$promise.then(function(success) {
-            $scope.showToast('alles ok!');
+            $rootScope.showToast('alles ok!');
             $mdDialog.hide();
         }, function(error) {
-            $scope.showToast('Fehler ist aufgetreten.');
+            $rootScope.showToast('Fehler ist aufgetreten.');
         });
     };
 

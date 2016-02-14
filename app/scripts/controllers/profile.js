@@ -7,13 +7,13 @@
  * # ProfileCtrl
  * Controller of the onlinesenpaiUiApp
  */
-angular.module('onlinesenpaiUiApp').controller('ProfileCtrl', function ($scope, UserService) {
+angular.module('onlinesenpaiUiApp').controller('ProfileCtrl', function ($scope, $rootScope, UserService) {
   $scope.user = $scope.currentUser;
   $scope.save = function () {
     UserService.update({id: $scope.user.id}, $scope.user).$promise.then(function(result){
-      $scope.showToast('alles ok!');
+      $rootScope.showToast('alles ok!');
     }, function(error){
-      $scope.showToast('Fehler ist aufgetreten.');
+      $rootScope.showToast('Fehler ist aufgetreten.');
     });
   };
 });

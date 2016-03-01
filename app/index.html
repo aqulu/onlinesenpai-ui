@@ -21,45 +21,46 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div layout="column" layout-fill>
-        <md-toolbar>
-            <div class="md-toolbar-tools md-tall" ng-show="!isLoggedIn()">
-                <span flex></span>
-                <span>
-                    <h2>和道会</h2>
-                    <span class="md-caption">Online Senpai</span>
-                </span>
-                <span flex></span>
-            </div>
-            <div class="md-toolbar-tools md-tall"  ng-show="isLoggedIn()">
-                <a href="#/">
-                    <h2>和道会</h2>
-                    <span class="md-caption">Online Senpai</span>
-                </a>
-                <!-- fill up the space between left and right area -->
-                <span flex></span>
-                <a class="md-button" href="#/techniques">Techniken</a>
-                <span flex="5"></span>
-                <a class="md-button" href="#/programs">Prüfungsprogramme</a>
-                <span flex="5"></span>
-                <a class="md-button" href="#/users" ng-show="currentUser.instructor">Verwaltung</a>
-                <span flex></span>
-                <span flex="10">
-                    {{currentUser.firstname}} {{currentUser.lastname}}
-                </span>
-                <span>
-                    <svg style="margin-top: 70%" height="75" width="100">
-                        <text x="20" y="15" fill="white">{{currentUser.grade.grade}}. {{currentUser.grade.level}}</text>
-                        <path d="M 0 20 q 50 10 100 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
-                        <path d="M 10 75 q 40 -100 80 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
-                        <circle cx="50" cy="25" r="10" style="fill: {{currentUser.grade.color_hex}}"  />
-                    </svg>
-                </span>
-                <span>
-                    <md-button ng-click="logout()"> Logout </md-button>
-                </span>
-                <a href="#/profile" class="md-icon-button">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="main">
+          <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">
+              <span flex></span>
+              <i class="material-icons" ng-click="toggleMenu()">arrow_back</i>
+            </h1>
+            <div layout="column" layout-align="start center" layout-padding>
+              <h3>{{currentUser.firstname}} {{currentUser.lastname}}</h3>
+              <span>
+                  <svg height="75" width="100">
+                      <text x="20" y="15" fill="white">{{currentUser.grade.grade}}. {{currentUser.grade.level}}</text>
+                      <path d="M 0 20 q 50 10 100 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
+                      <path d="M 10 75 q 40 -100 80 0" style="stroke: {{currentUser.grade.color_hex}}" stroke-width="7" fill="none" />
+                      <circle cx="50" cy="25" r="10" style="fill: {{currentUser.grade.color_hex}}"  />
+                  </svg>
+              </span>
+              <span>
+                  <a href="#/profile" class="md-icon-button">
                     <i class="material-icons">settings</i>
-                </a>
+                  </a>
+                  <md-button ng-click="logout()"> Logout </md-button>
+              </span>
+            </div>
+          </md-toolbar>
+          <md-content layout-padding>
+            <a class="md-button" href="#/techniques">Techniken</a>
+            <a class="md-button" href="#/programs">Prüfungsprogramme</a>
+            <a class="md-button" href="#/users" ng-show="currentUser.instructor">Verwaltung</a>
+          </md-content>
+        </md-sidenav>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools md-tall">
+                <i class="material-icons" ng-click="toggleMenu()" ng-show="isLoggedIn()">menu</i>
+                <span flex></span>
+                <span>
+                    <h2>和道会</h2>
+                    <span class="md-caption">Online Senpai</span>
+                </span>
+                <span flex></span>
             </div>
         </md-toolbar>
         <md-content flex>

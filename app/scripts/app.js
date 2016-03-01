@@ -62,8 +62,12 @@ angular
       }
       $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
   })
-  .run(function($rootScope, $location, $mdToast) {
+  .run(function($rootScope, $location, $mdToast, $mdSidenav) {
       $rootScope.currentUser = JSON.parse(localStorage.getItem('user'));
+
+      $rootScope.toggleMenu = function() {
+        $mdSidenav('main').toggle();
+      };
 
       $rootScope.setCredentials = function(user, token) {
         localStorage.setItem('token', token);

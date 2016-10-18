@@ -1,3 +1,7 @@
+# THIS PROJECT IS DEPRECATED AND IS BEING CONTINUED AS "DOJO-MANAGER"
+
+ * * *
+
 # onlinesenpai-ui
 
 Web-Frontend of the OnlineSenpai Dojo-management platform. A running API Service is required (see onlinesenpai-api repository) for this application.
